@@ -1,10 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
-folder=ubuntu-fs
+folder=kali-fs
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
 fi
-tarball="ubuntu-rootfs.tar.xz"
+tarball="kali-rootfs.tar.xz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
@@ -24,7 +24,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://kali.download/nethunter-images/current/rootfs/kali-nethunter-rootfs-minimal-${archurl}.tar.xz" -O $tarball
+		wget -O kali-rootfs.tar.xz "https://kali.download/nethunter-images/current/rootfs/kali-nethunter-rootfs-minimal-${archurl}.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
